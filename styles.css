@@ -1,0 +1,55 @@
+/* 通用样式 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace; /* 像素风格字体 */
+  overflow: hidden;
+  background: black; /* 背景黑色 */
+}
+
+/* 容器样式 */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+/* 标题文字样式 */
+h1 {
+  font-size: 4vw;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  text-shadow: 2px 2px 0 #FF6B6B, -2px -2px 0 #4ECDC4, -2px 2px 0 #FFA07A, 2px -2px 0 #FFFF66;
+}
+
+/* 像素风动态阴影 */
+h1::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: transparent;
+  text-shadow: 3px 3px 0 #ff6b6b, -3px -3px 0 #4ecdc4, -3px 3px 0 #ffa07a, 3px -3px 0 #ffff66;
+  animation: glitch 1.5s infinite alternate;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -2px); }
+}
+
+/* 烟花和星星背景 */
+#fireworks, #stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
